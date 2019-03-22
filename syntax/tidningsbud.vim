@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-03-15 09:32:22
+"     Date: 2019-03-22 14:59:51
 
 if exists("b:current_syntax")
   finish
@@ -14,6 +14,13 @@ syn match  tidningsbudtidheader      /   TID   /
 syn match  tidningsbudnoteringheader /\v  NOTERING\s{37}/
 syn match  tidningsbudbullet         /·/
 
+syn match weekday /\vMÅ|TI|ON|TO|FR/
+syn match weekend /\vLÖ|SÖ/
+
+hi weekday ctermfg=220 cterm=none
+hi weekend ctermfg=196 cterm=none
+
+
 hi tidningsbuddistriktheader cterm=bold,underline,italic,reverse ctermfg=34
 hi tidningsbuddatumheader    cterm=bold,underline,italic,reverse ctermfg=74
 hi tidningsbudtidheader      cterm=bold,underline,italic,reverse ctermfg=166
@@ -22,7 +29,7 @@ hi tidningsbudnoteringheader cterm=bold,underline,italic,reverse ctermfg=137
 syn match tidningsbudcolumn /|/
 hi tidningsbudcolumn cterm=bold ctermfg=240
 
-syn match tidningsbuddistrikt /\<2[0-9][0-9]\>/
+syn match tidningsbuddistrikt /\<2[0-9][0-9][0-9]\?\>/
 hi tidningsbuddistrikt  ctermfg=34
 
 syn match tidningsbudminuter /\<[0-9][0-9][0-9] min\>/
