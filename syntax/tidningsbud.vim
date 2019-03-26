@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-03-26 11:26:58
+"     Date: 2019-03-26 14:26:43
 
 if exists("b:current_syntax")
   finish
@@ -17,6 +17,8 @@ syn match  tidningsbudplaneradeheader /\v\s{30}PLANERADE\s{40}/
 syn match  tidningsbudbullet         /·/
 
 
+syn match tidningsbudhr /\v[=]{80}/
+hi tidningsbudhr ctermfg=196 cterm=bolditalicunderline
 
 
 syn match weekday /\v^(MÅ|TI|ON|TO|FR)\s+/
@@ -66,5 +68,8 @@ if !exists("did_tidningsbud_syntax_inits")
   hi Normal ctermfg=137
 
 endif
+
+"exe 'syn match tidningsbudtoday /\v.*' . strftime("%Y-%m-%d") . '.*/'
+"hi tidningsbudtoday cterm=underline
 
 let b:current_syntax="tidningsbud"
