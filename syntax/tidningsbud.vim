@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-03-26 14:26:43
+"     Date: 2019-03-26 15:37:26
 
 if exists("b:current_syntax")
   finish
@@ -17,8 +17,6 @@ syn match  tidningsbudplaneradeheader /\v\s{30}PLANERADE\s{40}/
 syn match  tidningsbudbullet         /·/
 
 
-syn match tidningsbudhr /\v[=]{80}/
-hi tidningsbudhr ctermfg=196 cterm=bolditalicunderline
 
 
 syn match weekday /\v^(MÅ|TI|ON|TO|FR)\s+/
@@ -41,7 +39,7 @@ hi tidningsbudplaneradeheader cterm=bold,underline,italic        ctermfg=143 cte
 syn match tidningsbudcolumn /|/
 hi tidningsbudcolumn cterm=bold ctermfg=240
 
-syn match tidningsbuddistrikt /\<2[0-9][0-9][0-9]\?\>/
+syn match tidningsbuddistrikt /  \<2[0-9][0-9][0-9]\?\>/
 hi tidningsbuddistrikt  ctermfg=34
 
 syn match tidningsbudminuter /\<[0-9][0-9][0-9] min\>/
@@ -64,11 +62,22 @@ if !exists("did_tidningsbud_syntax_inits")
   let did_tidningsbud_syntax_inits = 1
 
   hi tidningsbudbullet ctermfg=160 cterm=bold
-
   hi Normal ctermfg=137
+
 
 endif
 
+syn match tidningsbudhr /\v[=]{80}/
+hi tidningsbudhr ctermfg=196 cterm=bolditalicunderline
+
+syn region nottoday start=/\%^/ end=/\v[=]{80}/ keepend contains=tidningsbudhr,tidningsbuddistrikt
+hi notoday ctermbg=196
+
+
+
+
+"exe 'syn region nottoday start=/\%^/ skip=/\v[=]{80}/ end=/' . strftime("%Y-%m-%d") . '/' . ' contains=tidningsbuddistrikt,tidningsbudhr'
+"hi nottoday cterm=italic
 "exe 'syn match tidningsbudtoday /\v.*' . strftime("%Y-%m-%d") . '.*/'
 "hi tidningsbudtoday cterm=underline
 
