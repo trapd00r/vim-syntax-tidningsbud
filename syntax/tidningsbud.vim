@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-03-26 15:51:40
+"     Date: 2019-03-27 07:45:59
 
 if exists("b:current_syntax")
   finish
@@ -24,7 +24,7 @@ syn match weekend /\v^(LÖ|SÖ)\s+/
 
 
 hi weekday ctermfg=220 cterm=none
-hi weekend ctermfg=196 cterm=none
+hi weekend ctermfg=202 cterm=none
 
 syn match  tidningsbudtotal /TOTALUTDELNING/
 hi tidningsbudtotal ctermfg=197 ctermbg=53 cterm=boldunderlinereverse
@@ -34,10 +34,11 @@ hi tidningsbuddatumheader    cterm=bold,underline,italic,reverse ctermfg=74
 hi tidningsbudtidheader      cterm=bold,underline,italic,reverse ctermfg=166
 hi tidningsbudnoteringheader cterm=bold,underline,italic,reverse ctermfg=137
 hi tidningsbudweekdayheader  cterm=bold,underline,italic,reverse ctermfg=220
-hi tidningsbudplaneradeheader cterm=bold,underline,italic        ctermfg=143 ctermbg=232 cterm=reverse
+hi tidningsbudplaneradeheader cterm=bold,underline ctermfg=143 ctermbg=232 cterm=reverse
 
 syn match tidningsbudcolumn /|/
 hi tidningsbudcolumn cterm=bold ctermfg=240
+
 
 syn match tidningsbuddistrikt /  \<2[0-9][0-9][0-9]\?\>/
 hi tidningsbuddistrikt  ctermfg=34
@@ -70,11 +71,17 @@ endif
 syn match tidningsbudhr /\v[=]{80}/
 hi tidningsbudhr ctermfg=196 cterm=bolditalicunderline
 
-"syn region nottoday start=/\%^/ end=/\v[=]{80}/ keepend contains=tidningsbudhr,tidningsbuddistrikt,tidningsbudhr,tidningsbuddistriktheader,tidningsbuddatumheader,tidningsbudtidheader,tidningsbudweekdayheader,tidningsbudnoteringheader'
-syn region nottoday start=/\%2l/ end=/\v[=]{80}/ keepend contains=tidningsbudhr,tidningsbuddistrikt,tidningsbudhr,tidningsbuddistriktheader,tidningsbuddatumheader,tidningsbudtidheader,tidningsbudweekdayheader,tidningsbudnoteringheader'
-hi notoday ctermbg=196
+syn region nottoday start=/\%2l/ end=/\v[=]{80}/ keepend contains=tidningsbudhr,tidningsbuddistrikt,tidningsbudhr,tidningsbuddistriktheader,tidningsbuddatumheader,tidningsbudtidheader,tidningsbudweekdayheader,tidningsbudnoteringheader,weekday,weekend,pipecolumn,sunday
 
 
+syn region pipecolumn start=/|/ end=/$/ 
+hi pipecolumn ctermfg=138
+
+syn match pipe /\v[|]/
+hi pipe ctermfg=197 cterm=bolditalic
+
+syn match sunday /\v^SÖ\ze\s+/
+hi sunday cterm=underline ctermfg=160
 
 
 
