@@ -83,6 +83,9 @@ hi pipe ctermfg=197 cterm=bolditalic
 syn match sunday /\v^SÖ\ze\s+/
 hi sunday cterm=underline ctermfg=160
 
+syn match sickday /\v.*SJUK/
+hi sickday ctermbg=196 ctermfg=52
+
 
 
 "exe 'syn region nottoday start=/\%^/ skip=/\v[=]{80}/ end=/' . strftime("%Y-%m-%d") . '/' . ' contains=tidningsbuddistrikt,tidningsbudhr,tidningsbuddistriktheader,tidningsbuddatumheader,tidningsbudtidheader,tidningsbudweekdayheader,tidningsbudnoteringheader'
