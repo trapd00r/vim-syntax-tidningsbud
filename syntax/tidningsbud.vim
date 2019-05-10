@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-03-27 07:45:59
+"     Date: 2019-05-10 10:49:16
 
 if exists("b:current_syntax")
   finish
@@ -26,8 +26,11 @@ syn match weekend /\v^(LÖ|SÖ)\s+/
 hi weekday ctermfg=220 cterm=none
 hi weekend ctermfg=202 cterm=none
 
-syn match  tidningsbudtotal /TOTALUTDELNING/
+syn match  tidningsbudtotal /LEDIG/
 hi tidningsbudtotal ctermfg=197 ctermbg=53 cterm=boldunderlinereverse
+
+syn match  tidningsbudledig /LEDIG/
+hi tidningsbudledig ctermfg=22 ctermbg=112 cterm=boldunderlinereverse
 
 hi tidningsbuddistriktheader cterm=bold,underline,italic,reverse ctermfg=34
 hi tidningsbuddatumheader    cterm=bold,underline,italic,reverse ctermfg=74
