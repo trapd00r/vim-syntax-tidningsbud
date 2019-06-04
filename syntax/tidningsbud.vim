@@ -1,7 +1,7 @@
 "     What: tidningsbud.vim
 " Language: tidningsbud
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2019-05-10 10:49:16
+"     Date: 2019-06-04 10:27:13
 
 if exists("b:current_syntax")
   finish
@@ -86,7 +86,7 @@ hi pipe ctermfg=197 cterm=bolditalic
 syn match sunday /\v^SÖ\ze\s+/
 hi sunday cterm=underline ctermfg=160
 
-syn match sickday /\v.*SJUK/
+syn match sickday /\v.*SJUK.*/
 hi sickday ctermbg=196 ctermfg=52
 
 
